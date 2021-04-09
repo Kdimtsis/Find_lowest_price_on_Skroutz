@@ -73,6 +73,7 @@ class Skroutz_search():
 
         self.send_mail(product=product_name, price=lowest_price)
 
+        
     def notify(self, title, message):
             notification.notify(title=title, message=message, timeout=10)
 
