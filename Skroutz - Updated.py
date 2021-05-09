@@ -58,7 +58,6 @@ class Skroutz_search():
 
 
         all_prices = []
-        # BECAUSE IT IS A NONE OBJECT WE MUST TURN IT INTO A STRING
 
         for shop in shops:
             x = str(shop)
