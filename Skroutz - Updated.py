@@ -30,9 +30,9 @@ class Skroutz_search():
         driver = webdriver.Chrome(path)
         driver.get("https://www.skroutz.gr/")
 
-        search = driver.find_element_by_name("keyphrase")  # ΕΔΩ ΒΡΙΣΚΕΤΑΙ ΤΟ SEARCH BAR ΣΤΟ ΣΚΡΟΥΤΖ
-        search.send_keys(choice)  # ΟΤΙ ΒΑΛΩ ΕΔΩ ΘΑ ΚΑΝΕΙ ΣΕΡΤΣ ΣΤΟ SEARCH BAR
-        search.send_keys(Keys.RETURN) # ΠΑΤΑΕΙ ΕΝΤΕΡ
+        search = driver.find_element_by_name("keyphrase")  # LOCATE SEARCH BAR
+        search.send_keys(choice)  # ENTER CHOICE IN SEARCH BAR
+        search.send_keys(Keys.RETURN) # PRESS ENTER
 
         select_product = driver.find_element_by_xpath("/html/body/div[1]/main/section/ol/li[1]/div/h2/a")
         driver.execute_script("arguments[0].click();", select_product)
