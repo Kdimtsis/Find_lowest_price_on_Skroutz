@@ -13,6 +13,8 @@ import os
 import email
 
 class Skroutz_search():
+    
+    """A class that notifies the user for the lowest price"""
 
     def __init__(self):
         self.name = 'skroutz'
@@ -54,21 +56,19 @@ class Skroutz_search():
 
 
         # A LIST WITH EVERY STORE
-        shops = soup.find_all(class_="card js-product-card")
+        shops = soup.find_all(class_="js-product-card")
 
 
         all_prices = []
-
+        
         for shop in shops:
-            x = str(shop)
-            # product = x.partition("title=")[2].split(">")[0].replace("\"", "")
-            price = x.split(" €")[0].split(">")[-1].replace(".", "").replace(",", ".")
-            all_prices.append(float(price))
-
+            price = shop.strong.extract().text.replace(" €", "").replace(",",".")
+            price = float(price)
+            all_prices.append(price)
 
         lowest_price = sorted(all_prices)[0]
 
-        self.notify(title="UPDATE", message=f"Lowest price for {product_name} is now {lowest_price} Euros")
+        self.notify(title="PRICE UPDATE", message=f"Lowest price for {product_name} is now {lowest_price} Euros")
 
         self.send_mail(product=product_name, price=lowest_price)
 
@@ -76,6 +76,7 @@ class Skroutz_search():
     def notify(self, title, message):
             notification.notify(title=title, message=message, timeout=10)
 
+            
     def send_mail(self, product, price):
 
         email_address = os.environ.get("Gmail")
