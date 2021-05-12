@@ -74,7 +74,11 @@ class Skroutz_search():
 
         
     def notify(self, title, message):
-            notification.notify(title=title, message=message, timeout=10)
+        
+        """IN ORDER FOR THE ICON TO SHOW PROPERLY
+        THE APP ICON MUST BE IN ICO FORMAT"""
+        
+        notification.notify(title=title, message=message, app_icon="D:\\User-1\\Λήψεις\\Notification_icon.ico", timeout=10)
 
             
     def send_mail(self, product, price):
