@@ -68,7 +68,7 @@ class Skroutz_search():
 
         lowest_price = sorted(all_prices)[0]
 
-        self.notify(title="PRICE UPDATE", message=f"Lowest price for {product_name} is now {lowest_price} Euros")
+        self.notify(title="PRICE UPDATE", message=f"Lowest price for {product_name} is now {lowest_price} €")
 
         self.send_mail(product=product_name, price=lowest_price)
 
@@ -95,7 +95,7 @@ class Skroutz_search():
 
             subject = """Subject: Price notification"""
 
-            msg = f"{subject}\n\nLowest price for {product} is now {price} Euros.\nGo get it."
+            msg = f"{subject}\n\nLowest price for {product} is now {price} €.\nGo get it."
 
             smtp.sendmail("kiriakos.dim@hotmail.com", email_address, msg)
 
