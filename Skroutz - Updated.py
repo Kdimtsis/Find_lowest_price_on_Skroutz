@@ -62,7 +62,7 @@ class Skroutz_search():
         all_prices = []
         
         for shop in shops:
-            price = shop.strong.extract().text.replace(" €", "").replace(",",".")
+            price = shop.strong.extract().text.replace(" €", "").replace(".","").replace(",",".")
             price = float(price)
             all_prices.append(price)
 
